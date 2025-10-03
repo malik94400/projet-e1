@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Détails utilisateur</title>
+    <!-- on réutilise le même CSS que index -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+<header>
+    <div class="header-inner container">
+        <h1>Mon Portail</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="#" aria-current="page">Utilisateur</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- petit bouton pour revenir -->
+        <p><a class="btn secondary" href="index.html">← Retour</a></p>
+
+        <!-- zone infos utilisateur -->
+        <section id="user-info" class="note">
+            <!-- on remplira avec le JS (nom, email, entreprise) -->
+            <p>Chargement des infos…</p>
+        </section>
+
+        <!-- recherche locale dans les todos -->
+        <section class="search-wrap">
+            <label class="sr-only" for="todo-search">Rechercher une tâche</label>
+            <input class="input" id="todo-search" type="text" placeholder="Rechercher une tâche…"/>
+        </section>
+
+        <!-- liste des tâches -->
+        <section id="todos">
+            <!-- on va injecter des .user-card ou des <article> via JS -->
+            <div class="loader" aria-label="Chargement"></div>
+        </section>
+
+        <!-- formulaire ajout tâche -->
+        <section aria-labelledby="add-title">
+            <h2 id="add-title" style="margin-top:24px;margin-bottom:10px;">Ajouter une tâche</h2>
+            <form id="todo-form" novalidate>
+                <!-- titre obligatoire (simple) -->
+                <label class="sr-only" for="todo-title">Titre de la tâche</label>
+                <input class="input" id="todo-title" name="title" type="text" placeholder="Ex: appeler le client" required />
+
+                <!-- case à cocher (facultatif, on peut la gérer plus tard) -->
+                <div style="margin:10px 0;">
+                    <input id="todo-done" name="completed" type="checkbox" />
+                    <label for="todo-done">Marquer comme terminée</label>
+                </div>
+
+                <button class="btn" type="submit">Ajouter</button>
+                <!-- messages (succès/erreur) -->
+                <p id="form-msg" class="note hidden" role="status"></p>
+            </form>
+        </section>
+    </div>
+</main>
+
+
+<script src="js/utils.js" defer></script>
+<script src="js/api.js" defer></script>
+<script src="js/user.js" defer></script>
+</body>
+</html>

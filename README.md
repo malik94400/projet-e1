@@ -63,3 +63,15 @@ Il est réalisé en **HTML5, CSS3 et JavaScript Vanilla**, en s’appuyant sur l
 (Aucune dépendance ni serveur n’est nécessaire — tout est en JS natif).
 
 ---
+
+## 📄 Images du projet
+
+### Page d’accueil (index.html)
+![Page d’accueil - Desktop](./assets/images/pageAcc.png)
+### Page d’accueil (index.html) - Mobile
+![Page d’accueil - Mobile](./assets/images/pageAccMob.png)
+
+### Page détail utilisateur (user.html)
+![Page détail utilisateur - Desktop](./assets/images/pageUser.png)
+
+

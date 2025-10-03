@@ -16,18 +16,32 @@
     </script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/hamburger.css">
 </head>
 <body>
 <header>
     <div class="header-inner container">
         <h1>Mon Portail</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="#" aria-current="page">Utilisateur</a>
+
+        <!-- Bouton hamburger (mobile) -->
+        <button class="hamburger" id="hamburger"
+                type="button"
+                aria-label="Menu"
+                aria-controls="mainnav"
+                aria-expanded="false">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+        </button>
+
+        <!-- Nav repliable -->
+        <nav id="mainnav" class="nav-collapsible">
+            <a href="index.html" aria-current="page">Accueil</a>
+            <a href="user.html?id=1">User test</a>
+
+            <!-- Bouton de thème existant (conservé dans la nav) -->
             <button class="theme-toggle" id="toggle-theme" type="button" aria-label="Changer de thème">
-                <span class="track">
-                    <span class="thumb"></span>
-                  </span>
+                <span class="track"><span class="thumb"></span></span>
                 <span class="label">Thème</span>
             </button>
         </nav>
@@ -81,6 +95,7 @@
 
 
 <script src="js/theme.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/utils.js" defer></script>
 <script src="js/api.js" defer></script>
 <script src="js/user.js" defer></script>

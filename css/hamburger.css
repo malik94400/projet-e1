@@ -1,0 +1,49 @@
+/* Bouton hamburger */
+.hamburger {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--surface-2); cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+}
+.hamburger:hover { transform: translateY(-1px); }
+.hamburger .bar {
+    width: 18px; height: 2px; background: var(--text); display: block;
+    margin: 2.5px 0; transition: transform .2s ease, opacity .2s ease;
+}
+
+/* Menu repliable (mobile par défaut) */
+.nav-collapsible {
+    position: absolute; right: 4%; left: 4%; top: calc(100% + 8px);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-2);
+    padding: 10px; display: grid; gap: 8px;
+    max-height: 0; overflow: hidden; opacity: 0; visibility: hidden;
+    transition: max-height .25s ease, opacity .2s ease, visibility .2s step-end;
+}
+
+/* Quand ouvert : on pilote via un attribut sur <html> */
+html[data-nav-open="true"] .nav-collapsible {
+    max-height: 400px; opacity: 1; visibility: visible;
+    transition: max-height .3s ease, opacity .25s ease;
+}
+
+/* Effet "X" sur les barres quand ouvert */
+html[data-nav-open="true"] .hamburger .bar:nth-child(1) {
+    transform: translateY(4.5px) rotate(45deg);
+}
+html[data-nav-open="true"] .hamburger .bar:nth-child(2) {
+    opacity: 0;
+}
+html[data-nav-open="true"] .hamburger .bar:nth-child(3) {
+    transform: translateY(-4.5px) rotate(-45deg);
+}
+
+/* Nav horizontale (desktop) : on redevient inline au-delà de 768px */
+@media (min-width: 768px) {
+    .hamburger { display: none; }
+    .nav-collapsible {
+        position: static; display: flex; align-items: center; gap: 12px;
+        padding: 0; background: transparent; border: 0; box-shadow: none;
+        max-height: none; opacity: 1; visibility: visible;
+    }
+}

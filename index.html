@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="ocean">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portail de projets</title>
+
+    <!-- Préchargement du thème depuis le localStorage pour éviter le flash -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t) document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -14,6 +24,12 @@
         <nav>
             <a href="index.html" aria-current="page">Accueil</a>
             <a href="user.html?id=1">User test</a>
+            <button class="theme-toggle" id="toggle-theme" type="button" aria-label="Changer de thème">
+                <span class="track">
+                    <span class="thumb"></span>
+                  </span>
+                <span class="label">Thème</span>
+            </button>
         </nav>
     </div>
 </header>
@@ -30,6 +46,7 @@
         </section>
     </div>
 </main>
+<script src="js/theme.js"></script>
 <script src="js/utils.js" defer></script>
 <script src="js/api.js" defer></script>
 <script src="js/main.js" defer></script>

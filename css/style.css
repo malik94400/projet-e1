@@ -276,19 +276,8 @@ a.btn.secondary, .btn.secondary {
     }
 }
 
-/* 12) Todo preview */
-.todo-preview{
-    margin: 8px 0 14px 0;
-    padding-left: 18px;
-}
-.todo-preview li{
-    font-size: 14px;
-    color: var(--muted);
-    margin: 2px 0;
-}
-.muted{ color: var(--muted); }
 
-/* 13) User metrics */
+/* 12) User metrics */
 .user-metrics { margin: 8px 0 12px; }
 .user-metrics .metrics { display: grid; gap: 6px; }
 .user-metrics .bar {

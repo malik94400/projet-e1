@@ -1,5 +1,5 @@
 (function () {
-    const { qs, el, escapeHtml } = window.utils;
+    const { qs, el } = window.utils;
     const {getUsers, getTodosByUser} = window.api;
 
     const usersContainer = qs("#users");
@@ -24,12 +24,7 @@
             <span>${u.company ? u.company.name : ""}</span>
           </div>
         
-          <!-- Aperçu des 3 tâches max (chargées après) -->
-          <ul class="todo-preview" data-user-id="${u.id}">
-            <li class="muted">Chargement des tâches…</li>
-          </ul>
-          
-          <!-- métriques: total + % terminées, rempli après via JS -->
+            <!-- métriques: total + % terminées, rempli après via JS -->
           <div class="user-metrics" data-user-id="${u.id}">
             <span class="muted">Calcul en cours…</span>
           </div>
@@ -50,7 +45,6 @@
             // Option “élève” : on montre un mini compteur de tâches sur 3 users (simple)
             // (ceci n'est pas obligatoire, c'est juste pour donner un aspect "portail")
             renderUsers(allUsers);
-            await prefetchTodosPreviews(allUsers);
             await fillUserMetrics(allUsers);
 
         } catch (e) {
@@ -65,33 +59,6 @@
             const filtered = allUsers.filter(u => u.name.toLowerCase().includes(q));
             renderUsers(filtered);
         });
-    }
-
-
-
-    async function prefetchTodosPreviews(users){
-        // on les charge séquentiellement (simple et "safe" pour l'API)
-        for (const u of users){
-            const holder = document.querySelector(`.todo-preview[data-user-id="${u.id}"]`);
-            if (!holder) continue;
-
-            try{
-                const todos = await getTodosByUser(u.id);
-                // on prend 3 tâches (priorité aux non-terminées si possible)
-                const sorted = [...todos].sort((a,b) => Number(a.completed) - Number(b.completed));
-                const top3 = sorted.slice(0, 3);
-
-                if (!top3.length){
-                    holder.innerHTML = `<li class="muted">Aucune tâche</li>`;
-                } else {
-                    holder.innerHTML = top3
-                        .map(t => `<li>${escapeHtml(t.title)} ${t.completed ? "✅" : "🕓"}</li>`)
-                        .join("");
-                }
-            }catch(e){
-                holder.innerHTML = `<li class="muted">Erreur de chargement</li>`;
-            }
-        }
     }
 
     // calcule total + % terminées par user et met à jour le DOM

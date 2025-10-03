@@ -275,3 +275,32 @@ a.btn.secondary, .btn.secondary {
         padding: 10px 0;
     }
 }
+
+/* 12) Todo preview */
+.todo-preview{
+    margin: 8px 0 14px 0;
+    padding-left: 18px;
+}
+.todo-preview li{
+    font-size: 14px;
+    color: var(--muted);
+    margin: 2px 0;
+}
+.muted{ color: var(--muted); }
+
+/* 13) User metrics */
+.user-metrics { margin: 8px 0 12px; }
+.user-metrics .metrics { display: grid; gap: 6px; }
+.user-metrics .bar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    overflow: hidden;
+}
+.user-metrics .bar > span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--success), var(--primary));
+    transition: width .4s ease;
+}

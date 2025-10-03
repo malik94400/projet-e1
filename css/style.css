@@ -395,3 +395,37 @@ nav a[aria-current="page"] {
 [data-theme="retro"] .theme-toggle .thumb {
     left: 24px;
 }
+
+/* ======================
+   Footer
+====================== */
+.site-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background: var(--surface, #111);
+    border-top: 1px solid rgba(255,255,255,.1);
+    text-align: center;
+    font-size: 14px;
+}
+
+.site-footer p {
+    margin: 0 0 8px;
+    color: var(--muted, #aaa);
+}
+
+.footer-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: var(--muted, #aaa);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--text, #fff);
+}

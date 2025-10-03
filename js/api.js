@@ -2,14 +2,13 @@
     const BASE = "https://jsonplaceholder.typicode.com";
 
     async function fetchJson(url, options){
-        // petit try/catch pour éviter de crasher
         try{
             const res = await fetch(url, options);
             if(!res.ok) throw new Error("HTTP " + res.status);
             return await res.json();
         }catch(err){
             console.error("API error:", err);
-            throw err; // on relance pour que l'appelant gère l'erreur
+            throw err;
         }
     }
 
@@ -37,6 +36,5 @@
         });
     }
 
-    // export global
     window.api = { getUsers, getUser, getTodosByUser, createTodo };
 })();

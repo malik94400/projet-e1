@@ -13,7 +13,7 @@
         });
     }
 
-    // Keep pages/tabs in sync if opened in parallel
+    // sync entre onglets
     window.addEventListener('storage', (e) => {
         if (e.key === 'theme' && e.newValue) {
             root.setAttribute('data-theme', e.newValue);

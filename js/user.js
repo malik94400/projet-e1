@@ -80,7 +80,7 @@
             formMsg.classList.add("hidden");
 
             if (!title) {
-                // validation très simple (style débutant)
+                // validation
                 formMsg.textContent = "Le titre est obligatoire.";
                 formMsg.classList.remove("hidden");
                 return;
@@ -92,7 +92,6 @@
 
             try {
                 const created = await createTodo({userId: Number(userId), title, completed});
-                // on ajoute en haut de la liste (effet visuel immédiat)
                 allTodos = [{...created}, ...allTodos];
                 renderTodos(allTodos);
 

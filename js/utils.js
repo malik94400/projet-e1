@@ -24,6 +24,5 @@
             .replaceAll("'", "&#039;");
     }
 
-    // on met tout sur window.utils (simple)
     window.utils = {qs, qsa, el, escapeHtml};
 })();

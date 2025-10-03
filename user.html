@@ -81,11 +81,9 @@
         <section aria-labelledby="add-title">
             <h2 id="add-title" style="margin-top:24px;margin-bottom:10px;">Ajouter une tâche</h2>
             <form id="todo-form" novalidate>
-                <!-- titre obligatoire (simple) -->
                 <label class="sr-only" for="todo-title">Titre de la tâche</label>
                 <input class="input" id="todo-title" name="title" type="text" placeholder="Ex: appeler le client" required />
 
-                <!-- case à cocher (facultatif, on peut la gérer plus tard) -->
                 <div style="margin:10px 0;">
                     <input id="todo-done" name="completed" type="checkbox" />
                     <label for="todo-done">Marquer comme terminée</label>
@@ -98,6 +96,18 @@
         </section>
     </div>
 </main>
+
+<!--footer-->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2025 CollabTrack – Projet E1 (démo pédagogique)</p>
+        <nav class="footer-nav">
+            <a href="index.html">Accueil</a>
+            <a href="user.html?id=1">Utilisateur test</a>
+            <a href="#">À propos</a>
+        </nav>
+    </div>
+</footer>
 
 
 <script src="js/theme.js"></script>

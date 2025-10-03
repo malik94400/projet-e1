@@ -16,7 +16,6 @@
         }
         list.forEach(u => {
             const card = el("div", "user-card");
-            // Dans renderUsers(list), remplace l'intérieur de card.innerHTML par :
             card.innerHTML = `
           <h3>${u.name}</h3>
           <div class="user-meta">
@@ -76,7 +75,6 @@
                 const completed = todos.filter(t => t.completed).length;
                 const pct = total ? Math.round((completed / total) * 100) : 0;
 
-                // rendu simple + barre de progression
                 holder.innerHTML = `
         <div class="metrics">
           <span><strong>${total}</strong> tâches · <strong>${pct}%</strong> terminées</span>
